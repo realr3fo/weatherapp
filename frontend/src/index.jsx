@@ -8,6 +8,7 @@ const getWeatherFromApi = async () => {
     const response = await fetch(`${baseURL}/weather`);
     return response.json();
   } catch (error) {
+    // TODO: Handle error
     console.error(error);
   }
 
@@ -19,7 +20,7 @@ class Weather extends React.Component {
     super(props);
 
     this.state = {
-      icon: "",
+      icon: '',
     };
   }
 
@@ -33,7 +34,7 @@ class Weather extends React.Component {
 
     return (
       <div className="icon">
-        {icon && <img src={`/img/${icon}.svg`} />}
+        {icon && <img src={`/img/${icon}.svg`} alt="weather icon" />}
       </div>
     );
   }
