@@ -20,6 +20,17 @@ services:
     volumes:
       - ./backend:/app
       - /app/node_modules
-
     env_file:
       - .env
+
+  mock-api:
+    build:
+      context: ./mock-api
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./mock-api:/app
+      - /app/node_modules
+
+  
