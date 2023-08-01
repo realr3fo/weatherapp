@@ -19,16 +19,20 @@ class Weather extends React.Component {
     navigator.geolocation.getCurrentPosition(async (position) => {
       const { latitude, longitude } = position.coords;
 
-      const weatherData = await getWeatherFromApi(latitude, longitude);
-      if (weatherData.length === 0) {
-        this.setState({ error: 'Weather data not found', isLoading: false });
+      try {
+        const weatherData = await getWeatherFromApi(latitude, longitude);
+        if (weatherData.length === 0) {
+          this.setState({ error: 'Weather data not found', isLoading: false });
+        } else {
+          this.setState({
+            weatherData,
+            city: weatherData.length > 0 ? weatherData[0].location : 'None',
+            isLoading: false,
+          });
+        }
+      } catch (error) {
+        this.setState({ error: error.message, isLoading: false });
       }
-
-      this.setState({
-        weatherData,
-        city: weatherData.length > 0 ? weatherData[0].location : 'None',
-        isLoading: false,
-      });
     }, (error) => {
       this.setState({ error: `Geolocation error: ${error.message}`, isLoading: false });
     });
@@ -59,7 +63,7 @@ class Weather extends React.Component {
 
     if (error) {
       return (
-        <div>{`Error: ${error}`}</div>
+        <div className="error-message">{`Error: ${error}`}</div>
       );
     }
 

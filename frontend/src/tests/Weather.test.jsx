@@ -91,4 +91,14 @@ describe('Weather component', () => {
     expect(await screen.findByText(/Error:/)).toBeInTheDocument();
     expect(screen.getByText(/Geolocation error: Geolocation not active/)).toBeInTheDocument();
   });
+
+  it('displays error when API request fails', async () => {
+    getWeatherFromApi.mockImplementationOnce(() => Promise.reject(new Error('Custom error message')));
+
+    render(<Weather />);
+
+    await waitFor(() => expect(getWeatherFromApi).toHaveBeenCalledTimes(1));
+
+    expect(await screen.findByText(/Error: Custom error message/)).toBeInTheDocument();
+  });
 });
