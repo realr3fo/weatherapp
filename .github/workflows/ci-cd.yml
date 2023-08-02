@@ -21,39 +21,39 @@ jobs:
         with:
           python-version: "3.x"
 
-      # - name: Set up Node.js
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: "14"
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
 
-      # - name: Install dependencies and run backend tests
-      #   run: |
-      #     cd backend
-      #     npm ci
-      #     npm run test
+      - name: Install dependencies and run backend tests
+        run: |
+          cd backend
+          npm ci
+          npm run test
 
-      # - name: Install dependencies and run frontend tests
-      #   run: |
-      #     cd frontend
-      #     npm ci
-      #     npm run test
+      - name: Install dependencies and run frontend tests
+        run: |
+          cd frontend
+          npm ci
+          npm run test
 
-      # - name: Set up Docker
-      #   run: |
-      #     docker --version
-      #     docker-compose --version
+      - name: Set up Docker
+        run: |
+          docker --version
+          docker-compose --version
 
-      # - name: Build and start services
-      #   run: |
-      #     docker-compose up -d
+      - name: Build and start services
+        run: |
+          docker-compose up -d
 
-      # - name: Install dependencies for Robot Framework
-      #   run: |
-      #     pip install robotframework
+      - name: Install dependencies for Robot Framework
+        run: |
+          pip install robotframework
 
-      # - name: Run Robot Framework tests
-      #   run: |
-      #     robot robot-tests
+      - name: Run Robot Framework tests
+        run: |
+          robot robot-tests
 
       - name: Install Ansible
         run: |
