@@ -91,3 +91,10 @@ jobs:
       - name: Run Ansible playbook
         run: |
           ansible-playbook deploy.yml
+
+      - name: Upload logs
+        uses: actions/upload-artifact@v2
+        if: failure() # Only upload if the workflow failed
+        with:
+          name: logs
+          path: logs/
