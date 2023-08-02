@@ -11,7 +11,7 @@ ${PORT}     8080
 Visit Home Page
     [Tags]    visit_home
     Open Browser    http://${HOST}:${PORT}    browser=chrome    options=add_argument("--headless")
-    Title Should Be    What's the weather?
+    Title Should Be    What's the weather forecast?
 
 Verify Loading Spinner
     [Tags]    loading_spinner
