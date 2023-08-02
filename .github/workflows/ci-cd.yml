@@ -63,6 +63,7 @@ jobs:
         run: |
           pip install robotframework
           pip install selenium==4.9.0
+          pip install robotframework-seleniumlibrary
 
       - name: Build and start services
         run: |
