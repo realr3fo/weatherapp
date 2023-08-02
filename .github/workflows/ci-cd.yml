@@ -62,7 +62,7 @@ jobs:
       - name: Install dependencies for Robot Framework
         run: |
           pip install robotframework
-          pip install --upgrade robotframework-seleniumlibrary
+          pip install selenium==4.9.0
 
       - name: Build and start services
         run: |
