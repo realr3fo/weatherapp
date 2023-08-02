@@ -11,7 +11,7 @@ ${PORT}     8080
 Visit Home Page
     [Tags]    visit_home
     Open Browser    http://${HOST}:${PORT}    browser=chrome    options=add_argument("--headless")
-    Execute Javascript    window.navigator.geolocation.getCurrentPosition = function(success){var position = {"coords" : {"latitude": "52.3702","longitude": "4.8952"}}; success(position);}
+    Execute Javascript    window.navigator.geolocation.getCurrentPosition = function(success){var position = {"coords" : {"latitude": 52.3702, "longitude": 4.8952}}; success(position);}
     Title Should Be    What's the weather forecast?
 
 Verify Loading Spinner

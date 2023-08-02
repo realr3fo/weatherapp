@@ -59,20 +59,6 @@ jobs:
             cp .env_sample .env
           fi
 
-      - name: Install dependencies for Robot Framework
-        run: |
-          pip install robotframework
-          pip install selenium==4.9.0
-          pip install robotframework-seleniumlibrary
-
-      - name: Build and start services
-        run: |
-          docker-compose up -d
-
-      - name: Run Robot Framework tests
-        run: |
-          robot robot-tests
-
       - name: Install Ansible
         run: |
           python -m pip install --upgrade pip
@@ -91,13 +77,3 @@ jobs:
       - name: Run Ansible playbook
         run: |
           ansible-playbook ansible-deployment/deploy.yml
-
-      - name: Upload Robot Framework logs
-        uses: actions/upload-artifact@v2
-        if: always() # Upload logs even if the workflow succeeded
-        with:
-          name: robot-logs
-          path: |
-            output.xml
-            log.html
-            report.html

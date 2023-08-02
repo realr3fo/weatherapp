@@ -1,3 +1,4 @@
+require('dotenv').config();
 const Koa = require('koa');
 const cors = require('kcors');
 const weatherRoutes = require('./routes/weather');
@@ -13,4 +14,4 @@ app.use(forecastRoutes.routes());
 
 app.listen(port);
 
-console.log('App listening on port 9000');
+console.log(`App listening on port ${port}`);
