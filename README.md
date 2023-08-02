@@ -1,8 +1,11 @@
 # WeatherApp Project
 
-Welcome to the WeatherApp project, a beautiful and intuitive application that brings your local weather forecast right at your fingertips. Stay informed about the upcoming weather conditions, and plan your day effortlessly.
+Welcome to the WeatherApp project, a beautiful and intuitive application that brings your local weather forecast right at your fingertips. Stay informed about the upcoming weather conditions and plan your day effortlessly. This project is live at https://weatherapp-frontend-bvmqnrjbiq-lz.a.run.app/
+
+![alt webpage snippet](snippet.png)
 
 ## Table of Contents
+
 - [WeatherApp Project](#weatherapp-project)
   - [Table of Contents](#table-of-contents)
   - [Prerequisites](#prerequisites)
@@ -30,17 +33,17 @@ Before diving into the WeatherApp project, ensure you have the following compone
 
 After satisfying the prerequisites, follow these steps to run the WeatherApp project on your system:
 
-Firstly, clone the repository and navigate into the project directory. Copy the contents of the `.env_sample` file to a new file named `.env`:
+1. Firstly, clone the repository and navigate into the project directory. Copy the contents of the `.env_sample` file to a new file named `.env`:
 
-```bash
-cp .env_sample .env
-```
+   ```bash
+   cp .env_sample .env
+   ```
 
-In your newly created `.env` file, replace the `APPID` value with your own OpenWeatherMap API key.
+2. In your newly created `.env` file, replace the `APPID` value with your own OpenWeatherMap API key.
 
 ### Without Docker
 
-To start the backend, navigate to the backend directory, install the necessary packages and run the application:
+To start the backend, navigate to the backend directory, install the necessary packages, and run the application:
 
 ```bash
 cd backend
@@ -50,7 +53,7 @@ npm ci
 npm run start
 ```
 
-To start the frontend, navigate to the frontend directory, install the necessary packages and run the application:
+To start the frontend, navigate to the frontend directory, install the necessary packages, and run the application:
 
 ```bash
 cd frontend
@@ -58,11 +61,11 @@ npm ci
 npm run start
 ```
 
-Your application should now be running locally, you can access it in http://localhost:8080 (NOTE: you need to allow location services for your browser).
+Your application should now be running locally. You can access it at [http://localhost:8080](http://localhost:8080) (NOTE: you need to allow location services for your browser).
 
 ### With Docker
 
-If you prefer to use Docker, you can start both the frontend and the backend concurrently using Docker Compose, also make sure that the NODE_ENV variable in .env does not refer to 'test':
+If you prefer to use Docker, you can start both the frontend and the backend concurrently using Docker Compose. Also, make sure that the NODE_ENV variable in `.env` does not refer to 'test':
 
 ```bash
 sed -i '' 's/NODE_ENV=.*/NODE_ENV="dev"/g' .env
@@ -83,7 +86,7 @@ npm run test
 
 ### Integration Testing
 
-Before running the integration tests, ensure you have the Robot Framework and Selenium installed. Make sure to allow location services for your browser (in this case, chrome). Additionally, we need to set NODE_ENV variable in .env to 'test':
+Before running the integration tests, ensure you have the Robot Framework and Selenium installed. Make sure to allow location services for your browser (in this case, chrome). Additionally, we need to set the NODE_ENV variable in `.env` to 'test':
 
 ```bash
 sed -i '' 's/NODE_ENV=.*/NODE_ENV="test"/g' .env
@@ -92,7 +95,7 @@ pip install selenium==4.9.0
 pip install robotframework-seleniumlibrary
 ```
 
-Afterwards, rerun the docker and run the integration tests:
+Afterward, rerun the docker and run the integration tests:
 
 ```bash
 docker-compose down
