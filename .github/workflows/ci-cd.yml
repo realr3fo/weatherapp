@@ -43,6 +43,12 @@ jobs:
           docker --version
           docker-compose --version
 
+      - name: Prepare environment variables
+        run: |
+          if [ ! -f .env ]; then
+            cp .env_sample .env
+          fi
+
       - name: Build and start services
         run: |
           docker-compose up -d
