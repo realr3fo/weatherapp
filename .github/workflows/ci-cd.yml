@@ -21,6 +21,23 @@ jobs:
         with:
           python-version: "3.x"
 
+      # - name: Set up Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: "14"
+
+      # - name: Install dependencies and run backend tests
+      #   run: |
+      #     cd backend
+      #     npm ci
+      #     npm run test
+
+      # - name: Install dependencies and run frontend tests
+      #   run: |
+      #     cd frontend
+      #     npm ci
+      #     npm run test
+
       # - name: Set up Docker
       #   run: |
       #     docker --version
@@ -48,6 +65,10 @@ jobs:
           echo "${{ secrets.GCR_JSON_KEY_ENCODED }}" | base64 --decode > gcloud_key.json
           gcloud auth activate-service-account --key-file gcloud_key.json
           gcloud config set project weatherapp-eficode
+
+      - name: Configure Docker to use gcloud command-line tool as a credential helper
+        run: |
+          gcloud --quiet auth configure-docker
 
       - name: Run Ansible playbook
         run: |

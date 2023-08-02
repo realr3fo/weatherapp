@@ -8,7 +8,7 @@
 
     - name: Deploy frontend to Cloud Run
       command:
-        cmd: "gcloud run deploy weatherapp-frontend --image gcr.io/weatherapp-eficode/weatherapp-frontend --region europe-north1"
+        cmd: "gcloud run deploy weatherapp-frontend --image gcr.io/weatherapp-eficode/weatherapp-frontend:latest --region europe-north1 --allow-unauthenticated"
 
     - name: Build and push backend Docker image
       command:
@@ -16,4 +16,4 @@
 
     - name: Deploy backend to Cloud Run
       command:
-        cmd: "gcloud run deploy weatherapp-backend --image gcr.io/weatherapp-eficode/weatherapp-backend --region europe-north1"
+        cmd: "gcloud run deploy weatherapp-backend --image gcr.io/weatherapp-eficode/weatherapp-backend:latest --region europe-north1 --allow-unauthenticated"
