@@ -27,7 +27,7 @@ module.exports = {
     historyApiFallback: true,
     disableHostCheck: true,
     host: process.env.HOST || '0.0.0.0',
-    port: process.env.PORT || 8000,
+    port: process.env.PORT || 8080,
   },
   output: {
     filename: '[name].[hash:8].js',

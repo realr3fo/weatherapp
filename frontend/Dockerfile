@@ -13,8 +13,8 @@ RUN npm install
 # Copy the rest of the frontend source code to the container
 COPY . .
 
-# Expose port 8000 for the server
-EXPOSE 8000
+# Expose port 8080 for the server
+EXPOSE 8080
 
-# Start NGINX when the container starts
+# Start when the container starts
 CMD ["npm", "start"]

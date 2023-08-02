@@ -3,7 +3,7 @@ const cors = require('kcors');
 const weatherRoutes = require('./routes/weather');
 const forecastRoutes = require('./routes/forecast');
 
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8080;
 
 const app = new Koa();
 
@@ -13,4 +13,4 @@ app.use(forecastRoutes.routes());
 
 app.listen(port);
 
-console.log(`App listening on port ${port}`);
+console.log('App listening on port 9000');

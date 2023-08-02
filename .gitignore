@@ -17,3 +17,6 @@ node_modules
 /robot-tests/*.html
 /robot-tests/*.xml
 /robot-tests/*.png
+
+# service key json
+servicekey.json

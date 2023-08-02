@@ -4,7 +4,7 @@ Library     SeleniumLibrary
 
 *** Variables ***
 ${HOST}     localhost
-${PORT}     8000
+${PORT}     8080
 
 
 *** Test Cases ***
