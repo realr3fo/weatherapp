@@ -4,7 +4,7 @@
   tasks:
     - name: Build and push frontend Docker image
       command:
-        cmd: "docker buildx build --platform linux/amd64 -t gcr.io/weatherapp-eficode/weatherapp-frontend ./frontend --push"
+        cmd: "docker buildx build --platform linux/amd64 -t gcr.io/weatherapp-eficode/weatherapp-frontend ../frontend --push"
 
     - name: Deploy frontend to Cloud Run
       command:
@@ -12,7 +12,7 @@
 
     - name: Build and push backend Docker image
       command:
-        cmd: "docker buildx build --platform linux/amd64 -t gcr.io/weatherapp-eficode/weatherapp-backend ./backend --push"
+        cmd: "docker buildx build --platform linux/amd64 -t gcr.io/weatherapp-eficode/weatherapp-backend ../backend --push"
 
     - name: Deploy backend to Cloud Run
       command:

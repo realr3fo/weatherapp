@@ -90,11 +90,14 @@ jobs:
 
       - name: Run Ansible playbook
         run: |
-          ansible-playbook deploy.yml
+          ansible-playbook ansible-deployment/deploy.yml
 
-      - name: Upload logs
+      - name: Upload Robot Framework logs
         uses: actions/upload-artifact@v2
-        if: failure() # Only upload if the workflow failed
+        if: always() # Upload logs even if the workflow succeeded
         with:
-          name: logs
-          path: logs/
+          name: robot-logs
+          path: |
+            output.xml
+            log.html
+            report.html
