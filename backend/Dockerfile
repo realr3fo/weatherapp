@@ -13,8 +13,8 @@ RUN npm install
 # Copy the rest of the backend source code to the container
 COPY . .
 
-# Expose port 9000 for the Node.js server
-EXPOSE 9000
+# Expose port 8080 for the Node.js server
+EXPOSE 8080
 
 # Start the Node.js backend server
 CMD ["npm", "start"]
