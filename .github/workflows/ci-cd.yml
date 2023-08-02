@@ -32,11 +32,21 @@ jobs:
           npm ci
           npm run test
 
+      - name: Backend lint check
+        run: |
+          cd backend
+          npm run lint --
+
       - name: Install dependencies and run frontend tests
         run: |
           cd frontend
           npm ci
           npm run test
+
+      - name: Frontend lint check
+        run: |
+          cd frontend
+          npm run lint --
 
       - name: Set up Docker
         run: |
@@ -49,13 +59,14 @@ jobs:
             cp .env_sample .env
           fi
 
-      - name: Build and start services
-        run: |
-          docker-compose up -d
-
       - name: Install dependencies for Robot Framework
         run: |
           pip install robotframework
+          pip install --upgrade robotframework-seleniumlibrary
+
+      - name: Build and start services
+        run: |
+          docker-compose up -d
 
       - name: Run Robot Framework tests
         run: |
